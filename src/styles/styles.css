@@ -1,0 +1,712 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Bahnschrift;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+header {
+  height: 100px;
+  display: flex;
+  background-color: white;
+}
+
+.NuevoHeader {
+  height: 100px;
+  display: flex;
+  background-color: #1e1e1e;
+  align-items: center;
+}
+
+header img,
+.NuevoHeader img {
+  display: flex;
+  margin: auto;
+  width: 90px;
+  margin-left: 70px;
+  height: 80px;
+}
+
+header img:hover,
+.NuevoHeader img:hover {
+  cursor: pointer;
+}
+
+.contacto {
+  display: flex;
+  margin: auto;
+  margin-right: 40px;
+  align-items: center;
+}
+
+header p {
+  color: black;
+  padding: 20px;
+  font-size: 23px;
+}
+
+header p:hover,
+.NuevoHeader p:hover {
+  color: #0d99ff;
+  transition-duration: 0.7s;
+  cursor: pointer;
+}
+
+.NuevoHeader p {
+  color: white;
+  padding: 20px;
+  font-size: 23px;
+}
+
+.fondo {
+  height: 400px;
+  background-image: url("/assets/Fondo.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.texto {
+  margin: auto;
+  padding: 150px;
+  text-align: center;
+  color: white;
+}
+
+.texto h1 {
+  font-size: 40px;
+}
+
+.texto p {
+  font-size: 25px;
+}
+
+.catalogo {
+  background-color: #1e1e1e;
+  height: 100px;
+  color: white;
+  display: flex;
+}
+
+.texto2 {
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+.catalogo img {
+  padding-right: 20px;
+}
+
+.futbolSK {
+  width: 260px;
+  height: 65px;
+}
+
+.LPF {
+  width: 105px;
+  height: 90px;
+}
+
+.champions {
+  width: 100px;
+  height: 80px;
+}
+
+.catalogo p {
+  font-size: 30px;
+}
+
+/* 🔹 Eliminado el bloque de tarjetas del catálogo */
+
+footer {
+  height: 150px;
+  background-color: #1e1e1e;
+  display: flex;
+  color: white;
+}
+
+footer img {
+  width: 90px;
+  height: 80px;
+  margin: auto;
+  margin-left: 80px;
+}
+
+footer table {
+  border-collapse: collapse;
+  width: 500px;
+}
+
+footer table tr td {
+  margin: 20px;
+  padding: 0px 40px;
+}
+
+footer table tr td:hover {
+  color: #0d99ff;
+  transition-duration: 0.7s;
+  cursor: pointer;
+}
+
+footer img:hover {
+  cursor: pointer;
+}
+
+.copy {
+  height: 100px;
+  margin: auto;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detalle {
+  display: flex;
+  height: 566px;
+  background-color: white;
+}
+
+.slider {
+  width: 456px;
+  margin: auto;
+}
+
+.info {
+  margin: auto;
+  display: flex;
+  height: 420px;
+  align-items: center;
+  border-left: solid 2px gainsboro;
+}
+
+.text {
+  margin: auto;
+  height: 90%;
+  margin-left: 10px;
+}
+
+.text h1 {
+  font-size: 25px;
+  margin-bottom: 6px;
+}
+
+.text p {
+  font-size: larger;
+  margin-bottom: 29px;
+}
+
+.botones {
+  display: flex;
+}
+
+.botones button {
+  background-color: #b3b3b3;
+  padding: 18px 22px;
+  display: flex;
+  width: max-content;
+  font-size: larger;
+  margin: auto;
+  margin-right: 5px;
+  border-radius: 10px;
+  border: none;
+}
+
+.botones button:hover {
+  cursor: pointer;
+  transition-duration: 0.7s;
+  border: solid 1px black;
+}
+
+.botones button:active {
+  background-color: #8d8181;
+  border: solid 1px black;
+}
+
+.cant {
+  margin-top: 20px;
+  display: flex;
+}
+
+.cant p {
+  margin: auto;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.cant select {
+  padding: 20px;
+  margin: auto;
+  margin-left: 10px;
+  border-radius: 5px;
+  font-size: larger;
+  border: none;
+  background-color: #b3b3b3;
+}
+
+.boton1 {
+  display: flex;
+  margin: auto;
+  width: 300px;
+  margin-top: 15px;
+  padding: 0px 23%;
+  background-color: #0d99ff;
+  height: 40px;
+  color: white;
+  font-size: 20px;
+  align-items: center;
+  border-radius: 10px;
+  border: none;
+}
+
+.boton1:hover {
+  cursor: pointer;
+  background-color: #1b679e;
+}
+
+.boton2 {
+  display: flex;
+  margin: auto;
+  width: 300px;
+  margin-top: 15px;
+  background-color: #0d99ff;
+  height: 40px;
+  padding: 0px 35%;
+  color: white;
+  font-size: 20px;
+  align-items: center;
+  border-radius: 10px;
+  border: none;
+}
+
+.boton2:hover {
+  cursor: pointer;
+  background-color: #1b679e;
+}
+
+@media (max-width: 850px) {
+  .copy p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 800px) {
+  header {
+    height: 60px;
+  }
+
+  header img,
+  .NuevoHeader img {
+    width: 50px;
+    margin-left: 60px;
+    height: 50px;
+  }
+
+  .contacto p {
+    font-size: 17px;
+  }
+
+  .texto {
+    padding: 100px;
+  }
+
+  .texto h1 {
+    font-size: 36px;
+  }
+
+  footer table tr td {
+    padding: 0px 20px;
+  }
+
+  .detalle {
+    display: block;
+    height: unset;
+  }
+
+  .info {
+    border-left: unset;
+    margin-bottom: 20px;
+  }
+
+  .text {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 650px) {
+  .texto2 p {
+    font-size: 21px;
+  }
+
+  .futbolSK {
+    width: 200px;
+    height: 50px;
+  }
+
+  header img,
+  .NuevoHeader img {
+    margin-left: 20px;
+  }
+
+  footer img {
+    width: 100px;
+    height: 80px;
+    margin-left: 15px;
+  }
+
+  footer table tr td {
+    font-size: 11px;
+  }
+
+  .copy p {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 600px) {
+  .compra {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .copy {
+    display: none;
+  }
+
+  header img,
+  .NuevoHeader img {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    margin-left: 10px;
+  }
+
+  .texto {
+    padding: 100px 10px;
+  }
+
+  .slider {
+    width: 285px;
+    margin: auto;
+  }
+
+  .swiper-slide img {
+    width: -webkit-fill-available;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  header img,
+  .NuevoHeader img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .contacto {
+    margin-right: unset;
+  }
+
+  .futbolSK {
+    width: 160px;
+    height: 35px;
+  }
+
+  .texto2 {
+    margin-left: 10px;
+  }
+
+  footer img {
+    display: none;
+  }
+}
+
+/* 🔹 GENERAL */
+#root {
+  width: 100%;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Estilos base para la tarjeta */
+.card {
+  width: 100%;
+  height: auto;
+  max-width: 330px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedor de la imagen */
+.image-content {
+  background: white;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+/* Imagen */
+.card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-image .card-img {
+  width: 100%;
+  max-width: 200px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.card-image:hover .card-img {
+  transform: scale(1.05);
+}
+
+/* Línea divisora */
+.card-divider {
+  width: 100%;
+  height: 1px;
+  background: #ccc;
+  margin: 8px 0;
+}
+
+/* Contenido de texto */
+.card-content {
+  padding: 10px 16px;
+  text-align: center;
+  color: black;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 6px 0;
+  line-height: 1.3;
+}
+
+.card-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  margin: 4px 0;
+}
+
+/* Botones */
+.card-buttons {
+  display: flex;
+  gap: 8px;
+  padding: 10px 16px 16px 16px;
+  justify-content: center;
+}
+
+.btn-buy,
+.btn-view {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-buy {
+  background: #000;
+  color: white;
+}
+
+.btn-buy:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+.btn-view {
+  background: white;
+  color: #000;
+  border: 2px solid #000;
+}
+
+.btn-view:hover {
+  background: #f5f5f5;
+  transform: translateY(-2px);
+}
+
+/* ===== SLIDER STYLES ===== */
+
+/* Contenedor del slider con padding para las flechas */
+.catalogo-slider {
+  position: relative;
+  padding: 40px 0;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Contenedor interno del swiper con márgenes para las flechas */
+.catalogo-slider .swiper {
+  padding: 0 80px !important;
+}
+
+/* Posicionar flechas con margen igual a ambos lados */
+.catalogo-slider .swiper-button-prev {
+  left: 15px;
+}
+
+.catalogo-slider .swiper-button-next {
+  right: 15px;
+}
+
+/* Estilo de las flechas - SIN fondo circular */
+.catalogo-slider .swiper-button-prev,
+.catalogo-slider .swiper-button-next {
+  color: #000;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.catalogo-slider .swiper-button-prev:hover,
+.catalogo-slider .swiper-button-next:hover {
+  color: #333;
+  transform: scale(1.2);
+}
+
+/* Tamaño del icono de la flecha */
+.catalogo-slider .swiper-button-prev::after,
+.catalogo-slider .swiper-button-next::after {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* ===== RESPONSIVE CARDS ===== */
+
+/* Pantallas grandes: 3 productos centrados, mismo ancho (330px) */
+@media (min-width: 1024px) {
+  .card {
+    flex: 0 0 330px;
+  }
+}
+
+/* Pantallas medias: 2 productos, mismo ancho (330px) */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .card {
+    flex: 0 0 330px;
+  }
+}
+
+/* Pantallas chicas: 1 producto, un poco más ancho */
+@media (max-width: 599px) {
+  .card {
+    flex: 0 0 100%;
+    max-width: 380px;
+  }
+}
+
+/* ===== RESPONSIVE SLIDER ===== */
+
+/* Responsive para tablets (2 productos) */
+@media (max-width: 1023px) {
+  .catalogo-slider .swiper {
+    padding: 0 70px !important;
+  }
+  
+  .catalogo-slider .swiper-button-prev {
+    left: 10px;
+  }
+  
+  .catalogo-slider .swiper-button-next {
+    right: 10px;
+  }
+
+  .catalogo-slider .swiper-button-prev,
+  .catalogo-slider .swiper-button-next {
+    width: 45px;
+    height: 45px;
+  }
+
+  .catalogo-slider .swiper-button-prev::after,
+  .catalogo-slider .swiper-button-next::after {
+    font-size: 24px;
+  }
+}
+
+/* Responsive para móviles (1 producto) */
+@media (max-width: 767px) {
+  .catalogo-slider .swiper {
+    padding: 0 60px !important;
+  }
+  
+  .catalogo-slider .swiper-button-prev {
+    left: 5px;
+  }
+  
+  .catalogo-slider .swiper-button-next {
+    right: 5px;
+  }
+
+  .catalogo-slider .swiper-button-prev,
+  .catalogo-slider .swiper-button-next {
+    width: 40px;
+    height: 40px;
+  }
+
+  .catalogo-slider .swiper-button-prev::after,
+  .catalogo-slider .swiper-button-next::after {
+    font-size: 20px;
+  }
+}
+
+/* Responsive para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .catalogo-slider .swiper {
+    padding: 0 50px !important;
+  }
+  
+  .catalogo-slider .swiper-button-prev {
+    left: 2px;
+  }
+  
+  .catalogo-slider .swiper-button-next {
+    right: 2px;
+  }
+
+  .catalogo-slider .swiper-button-prev,
+  .catalogo-slider .swiper-button-next {
+    width: 36px;
+    height: 36px;
+  }
+
+  .catalogo-slider .swiper-button-prev::after,
+  .catalogo-slider .swiper-button-next::after {
+    font-size: 18px;
+  }
+}

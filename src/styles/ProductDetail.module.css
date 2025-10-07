@@ -1,0 +1,110 @@
+.container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.productSection {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px;
+  background-color: white;
+  flex: 1;
+}
+
+.imageContainer img {
+  width: 400px;
+  object-fit: contain;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.talles p,
+.cantidad p {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.talleButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.talleButton {
+  border: 1px solid #ccc;
+  background-color: #f3f3f3;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.talleButton:hover {
+  background-color: #e0e0e0;
+}
+
+.active {
+  background-color: #222;
+  color: white;
+}
+
+.cantidad input {
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.addButton {
+  background-color: #2d3748;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.buyButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.addButton:hover,
+.buyButton:hover {
+  opacity: 0.9;
+}
+
+.swiper {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 12px;
+}
+
+.productImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}

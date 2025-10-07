@@ -1,0 +1,226 @@
+/* Contenedor principal */
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Lado izquierdo con imagen */
+.login-left {
+  flex: 1;
+  background-color: #f0f0f0;
+}
+
+.login-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; /* elimina el espacio debajo de la imagen */
+}
+
+/* Lado derecho con formulario */
+.login-right {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;      /* pega todo arriba */
+  justify-content: flex-start;  /* pega todo a la izquierda */
+  padding: 40px 30px;           /* ajusta espacio desde los bordes */
+  background-color: #ffffff;
+}
+
+/* Formulario */
+.login-form {
+  width: 80%;
+  max-width: 400px;
+}
+
+/* Logo y marca */
+.login-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: flex-start;
+}
+
+.login-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-left: -5px; /* mueve un poquito a la izquierda */
+}
+
+.login-brand {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* Título */
+.login-form h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: left; /* alineado al logo */
+}
+
+/* Labels */
+.login-form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+/* Inputs */
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #f5f5f5; /* gris claro */
+  transition: all 0.2s ease;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #ccc;
+  box-shadow: none;
+}
+
+/* Opciones de login */
+.login-options {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.login-options a {
+  font-size: 0.9em;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-options a:hover {
+  text-decoration: underline;
+}
+
+/* Botón de login */
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Texto inferior */
+.login-form p {
+  margin-top: 15px;
+  font-size: 0.9em;
+  text-align: left;
+}
+
+.login-form p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-form p a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   Media Queries Responsive
+========================= */
+
+/* Pantallas medianas */
+@media (max-width: 968px) {
+  .login-form {
+    width: 90%;
+  }
+}
+
+/* Tablets y móviles grandes */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-left {
+    min-height: 200px;
+    max-height: 250px;
+  }
+
+  .login-right {
+    padding: 30px 20px;
+  }
+
+  .login-form {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .login-left {
+    min-height: 150px;
+    max-height: 180px;
+  }
+
+  .login-right {
+    padding: 20px 15px;
+  }
+
+  .login-form h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+
+  .login-form input,
+  .login-form button {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .login-options {
+    text-align: left;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 360px) {
+  .login-form h2 {
+    font-size: 1.3em;
+  }
+
+  .login-right {
+    padding: 15px 10px;
+  }
+}
+
+/* Responsive logo */
+@media (max-width: 480px) {
+  .login-header {
+    margin-bottom: 15px;
+  }
+
+  .login-logo {
+    width: 35px;
+    height: 35px;
+    margin-left: 0;
+  }
+
+  .login-brand {
+    font-size: 1.2em;
+  }
+}

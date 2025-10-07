@@ -1,10 +1,12 @@
-import { useParams, useNavigate } from "react-router-dom"; // ✅ importamos useNavigate
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { supabase } from "../lib/supaBaseClient";
 import styles from "../styles/ProductDetail.module.css";
 import { useCart } from "../components/CartContext";
+import { useAuth } from "../context/AuthContext";
+import { toast } from "react-toastify"; // si ya lo usás en Card.jsx
 
 // 🌀 Import Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,12 +16,13 @@ import "swiper/css/pagination";
 
 export default function ProductDetail() {
   const { slug } = useParams();
-  const navigate = useNavigate(); // ✅ hook de navegación
+  const navigate = useNavigate();
   const [producto, setProducto] = useState(null);
   const [cantidad, setCantidad] = useState(1);
   const [talleSeleccionado, setTalleSeleccionado] = useState(null);
   const [errorMensaje, setErrorMensaje] = useState("");
   const { addToCart } = useCart();
+  const { user } = useAuth(); // ✅ obtenemos el usuario
 
   useEffect(() => {
     const fetchProducto = async () => {
@@ -46,6 +49,14 @@ export default function ProductDetail() {
   const handleAddToCart = (e) => {
     e.preventDefault();
 
+    // ✅ chequeo si el usuario está logueado
+    if (!user) {
+      toast.error("Debes iniciar sesión para comprar", {
+        position: "bottom-right",
+      });
+      return;
+    }
+
     if (!talleSeleccionado) {
       setErrorMensaje("Por favor selecciona un talle antes de agregar al carrito.");
       return;
@@ -63,10 +74,13 @@ export default function ProductDetail() {
     };
 
     addToCart(item);
+    toast.success("Producto agregado al carrito", {
+      position: "bottom-right",
+    });
   };
 
   const handleVolver = () => {
-    navigate("/"); // ✅ vuelve a la página principal
+    navigate("/"); 
   };
 
   return (
@@ -112,9 +126,7 @@ export default function ProductDetail() {
               {talles.map((t) => (
                 <button
                   key={t}
-                  className={`${styles.talleButton} ${
-                    talleSeleccionado === t ? styles.active : ""
-                  }`}
+                  className={`${styles.talleButton} ${talleSeleccionado === t ? styles.active : ""}`}
                   onClick={() => {
                     setTalleSeleccionado(t);
                     setErrorMensaje("");
@@ -143,10 +155,7 @@ export default function ProductDetail() {
             <button className={styles.addButton} onClick={handleAddToCart}>
               Añadir al carrito
             </button>
-            <button
-              className={styles.volverButton} // ✅ nuevo botón
-              onClick={handleVolver}
-            >
+            <button className={styles.volverButton} onClick={handleVolver}>
               Volver
             </button>
           </div>

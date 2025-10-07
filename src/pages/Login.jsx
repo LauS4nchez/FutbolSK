@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { supabase } from "../lib/supaBaseClient";
+import { supabase } from "../lib/supabaseClient";
 import { useAuth } from "../context/AuthContext";
 
 import "./Login.css";
@@ -29,6 +29,7 @@ export default function Login() {
           return;
         }
 
+        // ✅ Verificar si el nombre de usuario o email ya existen
         const { data: existingUsers, error: checkError } = await supabase
           .from("usuarios")
           .select("id")
@@ -47,6 +48,7 @@ export default function Login() {
           return;
         }
 
+        // ✅ Insertar nuevo usuario
         const { data, error } = await supabase.from("usuarios").insert([
           {
             user: username,
@@ -71,6 +73,7 @@ export default function Login() {
         setPassword("");
         setIsRegistering(false);
       } else {
+        // Iniciar sesión
         const { data, error } = await supabase
           .from("usuarios")
           .select("*")
@@ -112,34 +115,6 @@ export default function Login() {
         />
       </div>
       <div className="login-right">
-        {/* 🔙 Botón para volver al inicio */}
-        <button
-          className="volver-btn"
-          onClick={() => navigate("/")}
-          style={{
-            background: "transparent",
-            border: "none",
-            color: "#555",
-            display: "flex",
-            alignItems: "center",
-            cursor: "pointer",
-            marginBottom: "10px",
-            fontSize: "16px",
-          }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            style={{ marginRight: "6px" }}
-          >
-            <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-          </svg>
-          Volver al inicio
-        </button>
-
         <div className="login-form">
           <div className="login-header">
             <span className="login-brand">Futbol SK</span>
@@ -187,6 +162,13 @@ export default function Login() {
               : isRegistering
               ? "Crear cuenta"
               : "Iniciar sesión"}
+          </button>
+          <button
+            type="button"
+            className="back-button"
+            onClick={() => navigate(-1)}
+          >
+             Volver
           </button>
 
           <p>

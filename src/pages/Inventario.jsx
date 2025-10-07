@@ -1,6 +1,6 @@
 // src/pages/AgregarProducto.jsx
 import { useState, useEffect } from "react";
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "../lib/supaBaseClient";
 import { useNavigate } from "react-router-dom";
 
 export default function AgregarProducto() {

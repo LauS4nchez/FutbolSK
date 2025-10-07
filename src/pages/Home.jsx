@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import CatalogSection from "../components/CatalogSection";
 import Footer from "../components/Footer";
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "../lib/supaBaseClient";
 
 function Home() {
   const [productos, setProductos] = useState([]);

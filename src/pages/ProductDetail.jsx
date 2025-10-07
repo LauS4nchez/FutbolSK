@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom"; // ✅ importamos use
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "../lib/supaBaseClient";
 import styles from "../styles/ProductDetail.module.css";
 import { useCart } from "../components/CartContext";
 

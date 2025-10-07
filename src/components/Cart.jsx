@@ -1,38 +1,32 @@
-import { useState } from "react"
-import { useCart } from "../context/CartContext"
+// Cart.jsx
+import { useState } from "react";
+import { useCart } from "./CartContext";
 
 export default function Cart() {
-  const {
-    cartItems,
-    removeFromCart,
-    updateQuantity,
-    getCartTotal,
-    isCartOpen,
-    closeCart,
-    confirmPurchase,
-  } = useCart()
+  const { cartItems, removeFromCart, updateQuantity, getCartTotal, isCartOpen, closeCart, confirmPurchase } =
+    useCart();
 
-  const [isReadyToConfirm, setIsReadyToConfirm] = useState(false)
+  const [isReadyToConfirm, setIsReadyToConfirm] = useState(false);
 
-  const subtotal = getCartTotal()
-  const shipping = cartItems.length > 0 ? (subtotal >= 12000 ? 0 : 2500) : 0
-  const total = subtotal + shipping
+  const subtotal = getCartTotal();
+  const shipping = cartItems.length > 0 ? (subtotal >= 200000 ? 0 : 30000) : 0;
+  const total = subtotal + shipping;
 
   const handlePurchaseClick = () => {
     if (isReadyToConfirm) {
-      confirmPurchase()
-      setIsReadyToConfirm(false)
+      confirmPurchase();
+      setIsReadyToConfirm(false);
     } else {
-      setIsReadyToConfirm(true)
+      setIsReadyToConfirm(true);
     }
-  }
+  };
 
   const handleContinueShopping = () => {
-    closeCart()
-    setIsReadyToConfirm(false)
-  }
+    closeCart();
+    setIsReadyToConfirm(false);
+  };
 
-  if (!isCartOpen) return null
+  if (!isCartOpen) return null;
 
   return (
     <>
@@ -96,5 +90,5 @@ export default function Cart() {
         </div>
       </div>
     </>
-  )
+  );
 }

@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { supabase } from "../lib/supaBaseClient";
+import { supabase } from "../lib/supabaseClient";
+import { useAuth } from "../context/AuthContext";
 
 import "./Login.css";
 
 export default function Login() {
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,14 +23,30 @@ export default function Login() {
 
     try {
       if (isRegistering) {
-        // Validaciones básicas
         if (!username || !email || !password) {
           toast.error("Completa todos los campos", { autoClose: 3000 });
           setLoading(false);
           return;
         }
 
-        // Insertar usuario en la tabla "usuarios"
+        const { data: existingUsers, error: checkError } = await supabase
+          .from("usuarios")
+          .select("id")
+          .or(`email.eq.${email},user.eq.${username}`);
+
+        if (checkError) {
+          console.error(checkError);
+          toast.error("Error al verificar usuario existente", { autoClose: 3000 });
+          setLoading(false);
+          return;
+        }
+
+        if (existingUsers.length > 0) {
+          toast.warning("Esa cuenta ya existe. Inicia sesión", { autoClose: 3000 });
+          setLoading(false);
+          return;
+        }
+
         const { data, error } = await supabase.from("usuarios").insert([
           {
             user: username,
@@ -48,13 +66,11 @@ export default function Login() {
         }
 
         toast.success("Cuenta creada correctamente", { autoClose: 2000 });
-
         setUsername("");
         setEmail("");
         setPassword("");
         setIsRegistering(false);
       } else {
-        // Login
         const { data, error } = await supabase
           .from("usuarios")
           .select("*")
@@ -66,6 +82,7 @@ export default function Login() {
           toast.error("Usuario o contraseña incorrectos", { autoClose: 3000 });
         } else {
           toast.success("Bienvenido " + data.user, { autoClose: 1000 });
+          login(data);
           navigate("/");
         }
       }
@@ -95,12 +112,40 @@ export default function Login() {
         />
       </div>
       <div className="login-right">
+        {/* 🔙 Botón para volver al inicio */}
+        <button
+          className="volver-btn"
+          onClick={() => navigate("/")}
+          style={{
+            background: "transparent",
+            border: "none",
+            color: "#555",
+            display: "flex",
+            alignItems: "center",
+            cursor: "pointer",
+            marginBottom: "10px",
+            fontSize: "16px",
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            style={{ marginRight: "6px" }}
+          >
+            <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+          </svg>
+          Volver al inicio
+        </button>
+
         <div className="login-form">
           <div className="login-header">
             <span className="login-brand">Futbol SK</span>
           </div>
 
-          <h2>{isRegistering ? "Bienvenido" : "Que bueno verte de nuevo!"}</h2>
+          <h2>{isRegistering ? "Bienvenido" : "¡Qué bueno verte de nuevo!"}</h2>
 
           {isRegistering && (
             <>
@@ -117,12 +162,12 @@ export default function Login() {
           <label>Correo Electrónico</label>
           <input
             type="text"
-            placeholder="Ingresa tu correo electronico o número"
+            placeholder="Ingresa tu correo electrónico"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          <label>Password</label>
+          <label>Contraseña</label>
           <input
             type="password"
             placeholder="Ingresa tu contraseña"

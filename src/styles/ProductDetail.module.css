@@ -6,42 +6,63 @@
   justify-content: space-between;
 }
 
+/* ----- SECCIÓN PRINCIPAL ----- */
 .productSection {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 40px;
-  padding: 40px;
+  padding: 40px 60px;
   background-color: white;
   flex: 1;
+  transition: all 0.3s ease;
+}
+
+/* ----- IMAGEN DEL PRODUCTO ----- */
+.imageContainer {
+  flex: 1;
+  max-width: 500px;
 }
 
 .imageContainer img {
-  width: 400px;
+  width: 100%;
   object-fit: contain;
+  border-radius: 12px;
 }
 
+/* ----- INFORMACIÓN DEL PRODUCTO ----- */
 .infoContainer {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  max-width: 400px;
+  gap: 18px;
+  max-width: 420px;
+  flex: 1;
+}
+
+.infoContainer h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #222;
 }
 
 .price {
-  font-size: 20px;
+  font-size: 1.3rem;
   font-weight: 600;
+  color: #333;
 }
 
 .talles p,
 .cantidad p {
   margin-bottom: 5px;
   font-weight: 500;
+  color: #444;
 }
 
+/* ----- BOTONES DE TALLE ----- */
 .talleButtons {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .talleButton {
@@ -50,6 +71,7 @@
   padding: 8px 16px;
   border-radius: 6px;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .talleButton:hover {
@@ -59,46 +81,56 @@
 .active {
   background-color: #222;
   color: white;
+  border-color: #222;
 }
 
+/* ----- INPUT DE CANTIDAD ----- */
 .cantidad input {
-  width: 60px;
-  padding: 5px;
+  width: 70px;
+  padding: 6px;
   text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
+/* ----- BOTONES PRINCIPALES ----- */
 .buttons {
   display: flex;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-top: 10px;
 }
 
-.addButton {
+.addButton,
+.volverButton {
   background-color: #2d3748;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 22px;
   border-radius: 8px;
   cursor: pointer;
-}
-
-.buyButton {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
 }
 
 .addButton:hover,
-.buyButton:hover {
+.volverButton:hover {
   opacity: 0.9;
+  transform: translateY(-2px);
 }
 
+.errorText {
+  color: #e63946;
+  font-size: 0.9rem;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* ----- SWIPER ----- */
 .swiper {
   width: 100%;
-  max-width: 450px;
+  max-width: 500px;
   border-radius: 12px;
 }
 
@@ -108,3 +140,62 @@
   object-fit: contain;
   border-radius: 12px;
 }
+
+/* ========================= */
+/* 📱 RESPONSIVE DESIGN */
+/* ========================= */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .productSection {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    gap: 30px;
+  }
+
+  .infoContainer {
+    max-width: 90%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .talleButtons {
+    justify-content: center;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+  .productSection {
+    padding: 20px;
+  }
+
+  .infoContainer h2 {
+    font-size: 1.4rem;
+  }
+
+  .price {
+    font-size: 1.1rem;
+  }
+
+  .talleButton {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  .addButton,
+  .volverButton {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cantidad input {
+    width: 60px;
+  }
+}
+

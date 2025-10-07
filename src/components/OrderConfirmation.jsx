@@ -1,4 +1,4 @@
-import { useCart } from "../context/CartContext";
+import { useCart } from "../components/CartContext";
 import React from "react";
 
 export default function OrderConfirmation() {

@@ -1,7 +1,37 @@
 import React, { useState } from "react";
+import { useCart } from "./CartContext";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useAuth } from "../context/AuthContext";
 
 export default function Card({ name, price, img, backImg, link }) {
   const [hovered, setHovered] = useState(false);
+  const { addToCart } = useCart();
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    console.log("COMPRAR clicked");
+
+    if (!user) {
+      toast.error("Debes iniciar sesión para comprar", {
+        position: "bottom-right",
+      });
+      return;
+    }
+
+    addToCart({ name, price, img, link });
+
+    toast.success("Producto agregado al carrito", {
+      position: "bottom-right",
+      autoClose: 3000,
+    });
+  };
+
+  const handleViewClick = () => {
+    navigate(link);
+  };
 
   return (
     <div
@@ -25,14 +55,18 @@ export default function Card({ name, price, img, backImg, link }) {
 
       <div className="card-content">
         <h2 className="card-title">{name}</h2>
-        <h1 className="card-price">{price}</h1>
+        <h1 className="card-price">{price.toLocaleString("es-AR")}</h1>
         <p className="card-payment-info">Efectivo SOLO con retiro PERSONAL</p>
-        <p className="card-full-price">3 cuotas sin interes</p>
+        <p className="card-full-price">3 cuotas sin interés</p>
       </div>
 
       <div className="card-buttons">
-        <button className="btn-buy">COMPRAR</button>
-        <button className="btn-view">👁 VER</button>
+        <button className="btn-buy" onClick={handleAddToCart}>
+          COMPRAR
+        </button>
+        <button className="btn-view" onClick={handleViewClick}>
+          👁 VER
+        </button>
       </div>
     </div>
   );

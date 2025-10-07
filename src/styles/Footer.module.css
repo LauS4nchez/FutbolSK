@@ -1,0 +1,32 @@
+footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+footer img {
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+footer .redes {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 10px;
+}
+
+footer .redes a svg {
+  fill: #fff;
+  transition: transform 0.3s;
+}
+
+footer .redes a:hover svg {
+  transform: scale(1.1);
+}
+
+footer .copy {
+  font-size: 12px;
+  color: #aaa;
+}

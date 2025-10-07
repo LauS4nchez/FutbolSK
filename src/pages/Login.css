@@ -122,6 +122,10 @@
   background-color: #0056b3;
 }
 
+.back-button {
+  margin-top: 10px;
+}
+
 /* Texto inferior */
 .login-form p {
   margin-top: 15px;
